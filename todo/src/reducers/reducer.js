@@ -2,10 +2,17 @@
 export const initialState={
     item:"Learn some reducers",
     completed:false,
-    id:389298758
+    id:Date.now()
 }
 
 export const reducer=(state, action)=>{
-    
-    return state;
+    switch(action.type){
+        case("ADD_TODO"):
+            return ({...state, item:action.payload})
+        case("TOGGLE_TODO"):
+            return ({...state, completed:action.payload})
+        default:
+            return state;
+    }
 }
+        
