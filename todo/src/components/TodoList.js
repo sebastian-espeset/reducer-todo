@@ -1,13 +1,20 @@
-import React from 'react'
-import TodoForm from './TodoForm'
+import React, { Component } from 'react'
+import { addTodo } from '../actions/actions'
 
 
-export default function Todo(props) {
-    return (
+export default function Todolist(props) {
+  
+// const handleAddTodo=()=>{
+//   dispatch(props.addTodo(props.formData)
+// }
+
+  
+  return (
         <div>
-          <TodoForm/>
-          <div>
-            {props.item}
+          <div >
+            {props.formData.map((ele)=>{
+              return <p>{ele.item}</p>
+            })}
           </div>
         </div>
     )

@@ -6,28 +6,28 @@ import {addTodo,toggleTodo} from "../actions/actions"
 
 //Where do I pass this info?
 
- const TodoForm=()=>{
-    
-    const [state, dispatch]=useReducer(reducer, initialState)
+ const TodoForm=(props)=>{
+    const [ formData, setFormData]=useState('')
     
     const handleChanges=(e)=>{
-        dispatch(addTodo(e.target.value))
+       setFormData(e.target.value)
     }
-    const handleToggle=(e)=>{
+    const handleAddTodo=(e)=>{
         e.preventDefault();
-        dispatch(toggleTodo(!state.completed))
+        props.dispatch(props.addToDo(formData));
     }
-   
+  
+     
     return(
     <div>
-        <form  >
+        <form >
             <input 
             name="Todo" 
             type="text"
             onChange={handleChanges}
-            value={state.input}
+            value={formData}
             />
-            <button>Submit</button>
+            <button onClick={handleAddTodo}>Add to list</button>
             <button>Clear</button>
          </form>
      </div>
