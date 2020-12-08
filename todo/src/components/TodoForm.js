@@ -1,6 +1,6 @@
 import React, {useState, useReducer, preventDefault}  from 'react';
 import {reducer, initialState} from "../reducers/reducer"
-import {addTodo,toggleTodo} from "../actions/actions"
+import {addTodo,clearForm,toggleTodo} from "../actions/actions"
 
 
 
@@ -16,7 +16,12 @@ import {addTodo,toggleTodo} from "../actions/actions"
         e.preventDefault();
         props.dispatch(props.addToDo(formData));
     }
-  
+    const handleClearForm=(e)=>{
+        e.preventDefault();
+        setFormData('')
+        props.dispatch(props.clearForm(initialState))
+    }
+    
      
     return(
     <div>
@@ -28,7 +33,7 @@ import {addTodo,toggleTodo} from "../actions/actions"
             value={formData}
             />
             <button onClick={handleAddTodo}>Add to list</button>
-            <button>Clear</button>
+            <button onClick={handleClearForm}>Clear</button>
          </form>
      </div>
  )

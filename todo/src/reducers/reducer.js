@@ -1,6 +1,6 @@
 
  export const initialState=[{
-    item:"Learn some reducers",
+    item:"",
     completed:false,
     id:Date.now()
 }]
@@ -11,7 +11,8 @@
             return ([...state, action.payload])
         case("SET_COMPLETED"):
             return state.map(todo=> action.payload===todo.id?{...todo,complete:!todo.completed}:todo)
-            
+        case("CLEAR_FORM"):
+            return initialState;    
          default:
             return state;
     }

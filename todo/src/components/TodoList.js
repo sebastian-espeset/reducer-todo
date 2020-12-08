@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
-import { addTodo } from '../actions/actions'
+import React from 'react'
 
 
 export default function Todolist(props) {
+  return (
+    <div className="todolist" >
+      {props.formData.map((ele)=>{
+        return <p>{ele.item}</p>
+      })}
+    </div>
+  )
+}
   
-// const handleAddTodo=()=>{
-//   dispatch(props.addTodo(props.formData)
-// }
 
   
-  return (
-        <div>
-          <div >
-            {props.formData.map((ele)=>{
-              return <p>{ele.item}</p>
-            })}
-          </div>
-        </div>
-    )
-}
+
+
